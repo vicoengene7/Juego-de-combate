@@ -1,13 +1,17 @@
-import {Soldado} from "./Soldado"
-import {Tanque} from "./Tanque"
+import {Soldado} from "./Soldado.js"
+import {Tanque} from "./Tanque.js"
 
 
 export class Buque {
-    private _numero;
-    private _vida = 10;
+    private _nombre: string;
+    private _vida: number;
+    private _estaVivo: boolean;
 
-    constructor(numero: string){
-        this._numero = numero;
+    constructor(nombre: string){
+        this._nombre = nombre;
+        this._vida = 3;
+        this._estaVivo = true;
+
     }
 
     public disparar(blanco: Soldado):void{
@@ -18,8 +22,13 @@ export class Buque {
         this._vida = this._vida - 1;
     }
 
-    get vida(): number{
-        return this._vida;
+    get estaVivo(): boolean{
+        return this._estaVivo;
     }
+
+    set estaVivo(valor: boolean):{
+        
+    }
+
 
 }
