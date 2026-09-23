@@ -1,38 +1,42 @@
-import {Tanque} from "./Tanque.js"
-import {Buque} from "./Buque.js"
+import {Escudo} from "./Escudo.js"
+import {Buque} from "./Buque.js";
+import {Tanque} from "./Tanque.js";
 
 export class Soldado {
     private _nombre: string;
-    private _estaVivo: boolean;
-    private _vida: number;
-    private _escudo: Boolean;
+    private _estaVivo: boolean = true;
+    private _vida: number = 1;
+    private _escudo: Boolean = false;
+    private _pistola: Boolean = false;
 
     constructor(nombre: string){
         this._nombre = nombre;
         this._vida = 1;
         this._estaVivo = true;
         this._escudo = false;
+        this._pistola = false;
     }
 
-    public disparar(blanco:Soldado|Tanque| Buque): void{
+    public disparar(blanco: Buque|Soldado|Tanque): void{
         blanco.recibirDisparo();
 
     }
+
     public recibirDisparo(): void{
-        this._estaVivo = false;
+        !this._escudo && (this._estaVivo = false);
     }
 
-    get estaVivo(): boolean {
+      get estaVivo(): boolean {
         return this._estaVivo;
 
     }
     set estaVivo(valor: boolean){
-        this._estaVivo = valor
+        this._estaVivo = valor;
     }
 
-    //public disparar(blanco:Soldado): void{
-        //blanco.recibirDisparo();
-    //}
+    tomarEscudo(escudo: Escudo): void {
+        this._escudo = true;
+    }
 
 
 }

@@ -1,5 +1,6 @@
-import { Soldado } from "./Soldado.js";
 import {Buque} from "./Buque.js";
+import {Soldado} from "./Soldado.js"
+import type { Escudo } from "./Escudo.js";
 
 export class Tanque {
     private _nombre: string;
@@ -9,12 +10,12 @@ export class Tanque {
 
     constructor(nombre: string) {
         this._nombre = nombre;
-        this._vida = 1;
+        this._vida = 2;
         this._estaVivo = true;
         this._escudo = false;
     }
 
-    public disparar(blanco: Soldado | Tanque): void {
+    public disparar(blanco: Buque|Soldado|Tanque): void {
         blanco.recibirDisparo();
     }
 
@@ -29,5 +30,10 @@ export class Tanque {
 
     get estaVivo(): boolean {
         return this._estaVivo;
+    }
+
+    tomarEscudo(escudo: Escudo){
+        this._escudo = true;
+
     }
 }

@@ -1,16 +1,16 @@
 export class Escudo{
-    private _porcentaje: number;
+    private _porcentajeEscudo: number;
 
     constructor(Porcentaje: number){
-        this._porcentaje = Porcentaje
+        this._porcentajeEscudo = Porcentaje
     }
 
     get porcentaje(): number {
-        return this._porcentaje;
+        return this._porcentajeEscudo;
     }
 
-    calculoPorcentaje(daño: number): number {
-        return daño * (1-this._porcentaje/100);
+    calculoDeDaño(daño: number): number {
+        return daño * (1-this._porcentajeEscudo/100);
 
     }
 }
