@@ -3,7 +3,6 @@ import {Buque} from "../src/Buque.js";
 import {Tanque} from "../src/Tanque.js";
 import {Soldado} from "../src/Soldado.js";
 import {Escudo} from "../src/Escudo.js";
-import { TestsNotFoundError } from "vitest/node";
 
 describe("Buque", ()=> {
     test ("Test de vida", ()=> {
